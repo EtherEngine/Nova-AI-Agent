@@ -192,35 +192,6 @@ python -m venv .venv
 pip install -e ".[dev]"
 ```
 
-## Konfiguration (`.env`)
-
-```powershell
-Copy-Item .env.example .env
-```
-
-| Variable                      | Pflicht | Standard                 | Zweck                                                                       |
-| ----------------------------- | ------- | ------------------------ | --------------------------------------------------------------------------- |
-| `OPENAI_API_KEY`              | ✅      | –                        | OpenAI-Schlüssel                                            |
-| `OPENAI_MODEL`                | ✅      | –                        | Chat-Modell, z. B. `gpt-4o-mini`                                            |
-| `OPENAI_TIMEOUT_SECONDS`      | –       | `30`                     | Request-Timeout                                                             |
-| `OPENAI_MAX_RETRIES`          | –       | `2`                      | Wiederholungen                                                              |
-| `MAX_TOOL_ROUNDS`             | –       | `5`                      | Obergrenze Tool-Runden                                                      |
-| `CORS_ORIGINS`                | –       | `localhost:5173,…`       | Erlaubte Frontend-Origins                                                   |
-| `DATABASE_URL`                | –       | –                        | Async-URL, z. B. `postgresql+asyncpg://…`; ohne DB laufen DB-Features nicht |
-| `JWT_SECRET_KEY`              | –       | –                        | Ohne Secret ist Auth deaktiviert                                            |
-| `JWT_ALGORITHM`               | –       | `HS256`                  | JWT-Signaturalgorithmus                                                     |
-| `ACCESS_TOKEN_EXPIRE_MINUTES` | –       | `30`                     | Gültigkeit Access-Token                                                     |
-| `REFRESH_TOKEN_EXPIRE_DAYS`   | –       | `7`                      | Gültigkeit Refresh-Token                                                    |
-| `EMBEDDING_MODEL`             | –       | `text-embedding-3-small` | Embedding-Modell                                                            |
-| `EMBEDDING_DIM`               | –       | `1536`                   | Vektordimension (fix für Migration)                                         |
-| `RAG_TOP_K`                   | –       | `4`                      | Standard-Trefferzahl                                                        |
-| `MAX_UPLOAD_MB`               | –       | `10`                     | Upload-Limit                                                                |
-| `UPLOAD_DIR`                  | –       | `./data/uploads`         | Ablage der Rohdateien                                                       |
-
-Die App bricht beim Start mit klarer Meldung ab, wenn `OPENAI_API_KEY` oder
-`OPENAI_MODEL` fehlen. Fehlt `DATABASE_URL`/`JWT_SECRET_KEY`, startet die App
-trotzdem – die jeweiligen Funktionen sind dann deaktiviert (HTTP 503).
-
 ## Lokaler Start
 
 ```powershell
@@ -392,23 +363,3 @@ lassen sich Backend und Frontend wie oben beschrieben getrennt starten; für
 Historie/Auth/RAG wird eine erreichbare PostgreSQL-Instanz mit `pgvector`
 benötigt.
 
-## Sicherheit
-
-- API-Schlüssel und Secrets ausschließlich über Umgebungsvariablen; niemals
-  hartkodiert, geloggt oder an Clients ausgegeben.
-- `.env` ist in `.gitignore`; `.env.example` enthält keine echten Werte.
-- Tools laufen nur über die Registry-Allowlist; kein `eval`, keine dynamische
-  Codeausführung; strikte JSON-Schemas (`additionalProperties: false`).
-- Passwörter mit argon2 gehasht; JWT-signierte Access-/Refresh-Tokens.
-- Uploads: Größen- und Typprüfung, path-traversal-sichere Dateinamen.
-- Security-Header (`X-Content-Type-Options`, `X-Frame-Options`,
-  `Referrer-Policy`, `Permissions-Policy`, HSTS) und CORS-Allowlist.
-- Clients erhalten nur sichere Fehlermeldungen mit sinnvollen HTTP-Statuscodes;
-  technische Details werden ausschließlich intern geloggt.
-
-## Roadmap
-
-Noch offen: MCP-Client (dynamische Tools), Observability (Metriken,
-strukturierte Logs, Correlation-IDs), Prompt-Management, `docker compose` mit
-Redis sowie GitHub-Actions-CI. Die Architektur ist auf diese Erweiterungen
-vorbereitet.
