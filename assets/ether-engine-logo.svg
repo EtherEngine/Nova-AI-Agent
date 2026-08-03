@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="ether engine">
+  <title>ether engine</title>
+
+  <!-- Emblem: weiße Scheibe mit dunklem "e"-Swirl (transparenter Hintergrund) -->
+  <circle cx="120" cy="120" r="112" fill="#ffffff"/>
+  <g fill="none" stroke="#0d0d0d" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M191 94 A76 76 0 1 0 178 169"/>
+    <path d="M50 122 C 92 106, 150 110, 190 120"/>
+  </g>
+</svg>
