@@ -6,8 +6,7 @@ Generation (RAG), JWT-Authentifizierung und einer React-Oberfläche.
 
 Der Agent empfängt eine Nachricht, entscheidet selbst über den Einsatz von
 Tools, validiert deren Argumente strikt mit Pydantic, führt sie lokal aus und
-erzeugt anschließend eine finale deutschsprachige Antwort – wahlweise
-gestreamt (Server-Sent Events).
+erzeugt anschließend eine finale Antwort.
 
 ## Feature-Status
 
