@@ -20,12 +20,8 @@ erzeugt anschließend eine finale Antwort.
 | Chat-Historie                       | ✅         | Chats/Messages/ToolCalls, CRUD, Persistenz der Turns                             |
 | Authentifizierung (JWT)             | ✅         | Register/Login/Refresh/Me, argon2-Hashing, User-Scoping                          |
 | RAG + pgvector + PDF-Upload         | ✅         | Extraktion→Chunking→Embeddings→Suche mit Quellen                                 |
-| MCP-Client (dynamische Tools)       | 🧭 geplant | Architektur über Registry vorbereitet                                            |
-| Observability + Prompt-Management   | 🧭 geplant | Metriken, strukturierte Logs, Correlation-IDs                                    |
-| Docker Compose (fe/be/pg/redis)     | 🧭 geplant | Einzelservice-`Dockerfile` vorhanden                                             |
-| CI/CD (GitHub Actions)              | 🧭 geplant | Ruff/pytest/Build                                                                |
 
-## Architektur (Überblick)
+## Architektur
 
 ```mermaid
 flowchart LR
