@@ -200,7 +200,7 @@ Copy-Item .env.example .env
 
 | Variable                      | Pflicht | Standard                 | Zweck                                                                       |
 | ----------------------------- | ------- | ------------------------ | --------------------------------------------------------------------------- |
-| `OPENAI_API_KEY`              | ✅      | –                        | OpenAI-Schlüssel (nie committen)                                            |
+| `OPENAI_API_KEY`              | ✅      | –                        | OpenAI-Schlüssel                                            |
 | `OPENAI_MODEL`                | ✅      | –                        | Chat-Modell, z. B. `gpt-4o-mini`                                            |
 | `OPENAI_TIMEOUT_SECONDS`      | –       | `30`                     | Request-Timeout                                                             |
 | `OPENAI_MAX_RETRIES`          | –       | `2`                      | Wiederholungen                                                              |
