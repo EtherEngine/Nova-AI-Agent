@@ -1,6 +1,6 @@
 # Nova AI Agent
 
-Ein AI-Agent-Plattform auf Basis der **OpenAI Responses API**
+Eine AI-Agent-Plattform auf Basis der **OpenAI Responses API**
 mit Tool Calling, Streaming, Chat-Historie, Retrieval-Augmented
 Generation (RAG), JWT-Authentifizierung und einer React-Oberfläche.
 
